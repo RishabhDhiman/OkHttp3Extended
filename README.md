@@ -37,6 +37,8 @@ This is the extended version of OkHttp3 Library. Which makes networking in java 
      ```
      
 # Getting Response From Server
+
+To get JSON response from server you need to add response listener on your CreateConnectino object
   
    ```
    createConnection.setResponseListener(new ResponseListener() {     
