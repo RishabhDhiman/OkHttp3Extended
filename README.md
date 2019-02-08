@@ -15,7 +15,7 @@ This is the extended version of OkHttp3 Library. Which makes networking in java 
    http://domain.com is correct where as http://domain.com/signin.php is wrong
    
    **You Don't need to call CreateConnection object in AsynTask or on background thread. The Library handles it itself.**
-3. Once you are done with the above step you are good to go now. To create a new request to server you have to create a RequestBody. Request body contains the parameters that you want to send to server.
+3. Once you are done with the above step you are good to go now. To create a new request to server you have to create a RequestBody. Request body contains the parameters that you want to send with request to server.
 
    **Creating Request Body**
    
@@ -41,7 +41,7 @@ This is the extended version of OkHttp3 Library. Which makes networking in java 
      
 # Getting Response From Server
 
-To get JSON response from server you need to add response listener on your CreateConnectino object
+To get JSON response from server you need to add response listener on your CreateConnection object
   
    ```
    createConnection.setResponseListener(new ResponseListener() {     
