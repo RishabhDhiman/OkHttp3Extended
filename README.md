@@ -7,6 +7,7 @@ This is the extended version of OkHttp3 Library. Which makes networking in java 
 2. Create a CreateConnection Object where you want to make a network request
 
    **CreateConnection createconnection = new CreateConnection(baseUrl);**
+   
    base Url should not include file name where we want to send request
    
    http://domain.com is correct where as http://domain.com/signin.php is wrong
@@ -14,6 +15,7 @@ This is the extended version of OkHttp3 Library. Which makes networking in java 
 3. Once you are done with the above step you are good to go now. To create a new request to server you have to create a -RequestBody. Request body contains the parameters that you want to send to server.
 
    **Creating Request Body**
+   
    RequestBody requestBody = new FormBody.Builder()
                 .add("name", value)
                 .add("name", value).build();
