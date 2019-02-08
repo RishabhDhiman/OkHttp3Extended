@@ -4,13 +4,16 @@ This is the extended version of OkHttp3 Library. Which makes networking in Andro
 
 # How to use
 
+Include This in your module level build.gradle file
+
+```implementation 'com.squareup.okhttp3:okhttp:3.12.1'```
+
 1. Add CreateConnection.jar file as a dependency in your Android Project 
                               **OR**
    Place CreateConnection.jar file in app/libs folder and then add 
    
     ```
     implementation files('libs/CreateConnection.jar')
-    implementation 'com.squareup.okhttp3:okhttp:3.12.1'
     ```
     
    in your project level build.gradle.
