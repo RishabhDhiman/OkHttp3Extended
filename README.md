@@ -8,7 +8,9 @@ This is the extended version of OkHttp3 Library. Which makes networking in java 
 
    ```CreateConnection createconnection = new CreateConnection(baseUrl);```
    
-   base Url should not include file name where we want to send request
+   base Url should not include file name where you want to send request
+   
+   **For  Example**
    
    http://domain.com is correct where as http://domain.com/signin.php is wrong
    
