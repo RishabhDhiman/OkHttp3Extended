@@ -11,5 +11,14 @@ This is the extended version of OkHttp3 Library. Which makes networking in java 
    
    http://domain.com is correct where as http://domain.com/signin.php is wrong
    
-3. Once you are done with the above step you are good to go now. To create a new request to server you have to create a RequestBody.
-Request body contains the parameters that you want to send to server.
+3. Once you are done with the above step you are good to go now. To create a new request to server you have to create a RequestBody. Request body contains the parameters that you want to send to server.
+   **Creating Request Body**
+   RequestBody requestBody = new FormBody.Builder()
+                .add("name", value)
+                .add("name", value).build();
+               
+4. Now, To create a actual connection with server you need to call createConnection function.
+   **If You want that the library itself shows progress dialog use this method**
+     createRequest(String url, RequestBody requestBody, Context context)
+   **If you manually want to show progress dialog use this method**'
+     createRequest(String url, RequestBody requestBody)
