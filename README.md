@@ -53,3 +53,8 @@ To get JSON response from server you need to add response listener on your Creat
             }
         });
    ```
+# Changing the URL after Object Creation
+ 
+To change BaseUrl you can call changeBaseUrl() method
+
+```createConnection.changeBaseUrl(URL)```
