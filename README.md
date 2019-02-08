@@ -17,6 +17,8 @@ This is the extended version of OkHttp3 Library. Which makes networking in Andro
    
 2. Add Internet Permissions in your manifest file.
 
+```<uses-permission android:name="android.permission.INTERNET"/>```
+
 3. Create a CreateConnection Object where you want to make a network request
 
    ```CreateConnection createconnection = new CreateConnection(baseUrl);```
