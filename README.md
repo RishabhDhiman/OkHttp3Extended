@@ -16,23 +16,30 @@ This is the extended version of OkHttp3 Library. Which makes networking in java 
 
    **Creating Request Body**
    
-    ```RequestBody requestBody = new FormBody.Builder()
+    ```
+    RequestBody requestBody = new FormBody.Builder()
                 .add("name", value)
-                .add("name", value).build();```
+                .add("name", value).build();
+                ```
                
 4. Now, To create a actual connection with server you need to call createConnection function.
 
    **If You want that the library itself shows progress dialog while connecting with server use this method**
      
-     ```createRequest(String url, RequestBody requestBody, Context context)```
+     ```
+     createRequest(String url, RequestBody requestBody, Context context)
+     ```
 
    **If you manually want to show progress dialog use this method**'
      
-     ```createRequest(String url, RequestBody requestBody)```
+     ```
+     createRequest(String url, RequestBody requestBody)
+     ```
      
 # Getting Response From Server
   
-   ```createConnection.setResponseListener(new ResponseListener() {     
+   ```
+   createConnection.setResponseListener(new ResponseListener() {     
             @Override
             public void onResponseReceived(String s) {
                //Response Successfully received
@@ -41,4 +48,5 @@ This is the extended version of OkHttp3 Library. Which makes networking in java 
             public void onResponseFailed() {
                 //Response Failed
             }
-        });```
+        });
+        ```
