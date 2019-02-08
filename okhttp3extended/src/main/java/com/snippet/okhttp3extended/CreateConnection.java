@@ -22,20 +22,20 @@ public class CreateConnection implements ResponseListener {
 	private static Request request;
 	private static RequestBody requestBody;
 	private static String temp;
-	private static String baseUrl = temp;
+	private static String mBaseUrl = temp;
 	private static ResponseListener mResponseListener;
 	private static Context mContext;
 	static int count = 0;
 
 	public CreateConnection(String baseUrl) {
 		temp = baseUrl;
-		baseUrl = temp;
+		mBaseUrl = temp;
 		okHttpClient = new OkHttpClient();
 		count++;
 	}
 
 	public void changeBaseUrl(String url) {
-		baseUrl = url;
+		mBaseUrl = url;
 	}
 
 	private static void network(Context context) {
@@ -50,12 +50,12 @@ public class CreateConnection implements ResponseListener {
 	public void createRequest(String url, RequestBody requestBody, Context context) {
 		network(context);
 		mContext = context;
-		baseUrl = baseUrl + url;
+		mBaseUrl = mBaseUrl + url;
 		ConnectWithServer connectWithServer = new ConnectWithServer();
 		connectWithServer.execute(requestBody);
 	}
 	public void createRequest(String url, RequestBody requestBody) {
-		baseUrl = baseUrl + url;
+		mBaseUrl = mBaseUrl+ url;
 		ConnectWithServer connectWithServer = new ConnectWithServer();
 		connectWithServer.execute(requestBody);
 	}
@@ -68,7 +68,7 @@ public class CreateConnection implements ResponseListener {
 	public void onResponseFailed() {
 	}
 
-	public static class ConnectWithServer extends AsyncTask<RequestBody, Void, Void> {
+	private static class ConnectWithServer extends AsyncTask<RequestBody, Void, Void> {
 
 		@Override
 		protected void onPreExecute() {
@@ -81,10 +81,10 @@ public class CreateConnection implements ResponseListener {
 					.add("hello", "rishabh")
 					.build();
 			request = new Request.Builder()
-					.url(baseUrl)
+					.url(mBaseUrl)
 					.post(requestBodies[0])
 					.build();
-			baseUrl = temp;
+			mBaseUrl = temp;
 			try {
 				response = okHttpClient.newCall(request).execute();
 				mResponse = response.body().string();
