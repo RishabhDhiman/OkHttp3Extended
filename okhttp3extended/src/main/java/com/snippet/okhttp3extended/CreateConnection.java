@@ -78,12 +78,12 @@ public class CreateConnection implements ResponseListener {
 		@Override
 		protected Void doInBackground(RequestBody... requestBodies) {
 			requestBody = new FormBody.Builder()
-			.add("hello", "rishabh")
-			.build();
+					.add("hello", "rishabh")
+					.build();
 			request = new Request.Builder()
-			.url(baseUrl)
-			.post(requestBodies[0])
-			.build();
+					.url(baseUrl)
+					.post(requestBodies[0])
+					.build();
 			baseUrl = temp;
 			try {
 				response = okHttpClient.newCall(request).execute();
@@ -111,10 +111,4 @@ public class CreateConnection implements ResponseListener {
 	public void setResponseListener(ResponseListener responseListener) {
 		mResponseListener = responseListener;
 	}
-}
-
-interface ResponseListener {
-	void onResponseReceived(String json);
-
-	void onResponseFailed();
 }
