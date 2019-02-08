@@ -20,8 +20,10 @@ This is the extended version of OkHttp3 Library. Which makes networking in java 
                
 4. Now, To create a actual connection with server you need to call createConnection function.
 
-   **If You want that the library itself shows progress dialog use this method**
+   **If You want that the library itself shows progress dialog while connecting with server use this method**
+     
      createRequest(String url, RequestBody requestBody, Context context)
 
    **If you manually want to show progress dialog use this method**'
+     
      createRequest(String url, RequestBody requestBody)
