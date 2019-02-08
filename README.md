@@ -21,7 +21,8 @@ This is the extended version of OkHttp3 Library. Which makes networking in Andro
    and 
    ```implementation 'com.squareup.okhttp3:okhttp:3.12.1'```
    in your module level build.gradle
-   For Android 8 OREo or above you also need to create a network security configuration file where you need to define where      do you want to send request from your application. To do this create file res/xml/network_security_config.xml
+   
+   For Android 8 OREO or above you also need to create a network security configuration file where you need to define where      do you want to send request from your application. To do this create file res/xml/network_security_config.xml
    
    ```
    <?xml version="1.0" encoding="utf-8"?>
@@ -39,10 +40,8 @@ This is the extended version of OkHttp3 Library. Which makes networking in Andro
    <manifest ...>
        <uses-permission android:name="android.permission.INTERNET" />
        <application
-        ...
            android:networkSecurityConfig="@xml/network_security_config"
-        ...>
-        ...
+       ...>
        </application>
    </manifest>
     ```
