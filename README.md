@@ -5,8 +5,7 @@ This is the extended version of OkHttp3 Library. Which makes networking in Andro
 # How to use
 
 1. Add CreateConnection.jar file as a dependency in your Android Project                              
-                               **OR**
-                               
+                                **OR**                      
    Place CreateConnection.jar file in app/libs folder and then add 
    
     ```
