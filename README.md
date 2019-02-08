@@ -60,7 +60,7 @@ This is the extended version of OkHttp3 Library. Which makes networking in Andro
      </manifest>
      ```
     
-3. Create a CreateConnection Object where you want to make a network request
+3. Create a CreateConnection Object when you want to make a network request
 
    ```CreateConnection createconnection = new CreateConnection(baseUrl);```
    
