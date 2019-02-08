@@ -11,7 +11,8 @@ This is the extended version of OkHttp3 Library. Which makes networking in java 
    base Url should not include file name where we want to send request
    
    http://domain.com is correct where as http://domain.com/signin.php is wrong
-   **You Don't need to call CreateConnection object in AsynTask. The Library handles it itself at the backend**
+   
+   **You Don't need to call CreateConnection object in AsynTask. The Library handles it itself.**
 3. Once you are done with the above step you are good to go now. To create a new request to server you have to create a -RequestBody. Request body contains the parameters that you want to send to server.
 
    **Creating Request Body**
