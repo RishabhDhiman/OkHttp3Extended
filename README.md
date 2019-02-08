@@ -46,6 +46,7 @@ This is the extended version of OkHttp3 Library. Which makes networking in Andro
    </manifest>
     ```
     **OR**
+    
     If you want to allow your app to send request to all domain/ip use this directly in your AndroidManifest.xml file
     ```
     <?xml version="1.0" encoding="utf-8"?>
