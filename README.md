@@ -4,10 +4,6 @@ This is the extended version of OkHttp3 Library. Which makes networking in Andro
 
 # How to use
 
-Include This in your module level build.gradle file
-
-```implementation 'com.squareup.okhttp3:okhttp:3.12.1'```
-
 1. Add CreateConnection.jar file as a dependency in your Android Project 
                               **OR**
    Place CreateConnection.jar file in app/libs folder and then add 
@@ -21,6 +17,10 @@ Include This in your module level build.gradle file
 2. Add Internet Permissions in your manifest file.
 
    ```<uses-permission android:name="android.permission.INTERNET"/>```
+   
+   and 
+   ```implementation 'com.squareup.okhttp3:okhttp:3.12.1'```
+   in your module level build.gradle
 
 3. Create a CreateConnection Object where you want to make a network request
 
