@@ -3,8 +3,14 @@ package com.snippet.okhttp3extended;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
+import android.support.annotation.NonNull;
+import android.util.Log;
+
+import org.json.JSONException;
 
 import java.io.IOException;
+import java.net.SocketTimeoutException;
+import java.util.concurrent.TimeUnit;
 
 import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
@@ -37,13 +43,26 @@ public class CreateConnection implements ResponseListener {
 		temp = baseUrl;
 		mBaseUrl = temp;
 		okHttpClient = new OkHttpClient();
-		count++;
+        count++;
+	}
+
+	public void setTimeOuts(@NonNull int connectTimeout ,@NonNull int writeTimeout ,@NonNull int readTimeout ,@NonNull TimeUnit timeUnit)
+	{
+		OkHttpClient.Builder builder = new OkHttpClient.Builder();
+		builder.connectTimeout(connectTimeout, timeUnit) // connect timeout
+				.writeTimeout(writeTimeout, timeUnit) // write timeout
+				.readTimeout(readTimeout, timeUnit);
+		okHttpClient = builder.build();
 	}
 
 	public void changeBaseUrl(String url) {
 		mBaseUrl = url;
 	}
 
+	public String getRequestedUrl()
+	{
+		return mBaseUrl;
+	}
 	private static void network(Context context) {
 		progressDialog = new ProgressDialog(context);
 		progressDialog.setCancelable(false);
@@ -60,7 +79,7 @@ public class CreateConnection implements ResponseListener {
 		ConnectWithServer connectWithServer = new ConnectWithServer();
 		connectWithServer.execute(requestBody);
 	}
-	public void createRequest(String url, RequestBody requestBody) {
+	public void createRequest(String url, RequestBody requestBody)throws IOException {
 		mBaseUrl = mBaseUrl+ url;
 		ConnectWithServer connectWithServer = new ConnectWithServer();
 		connectWithServer.execute(requestBody);
@@ -74,7 +93,12 @@ public class CreateConnection implements ResponseListener {
 	public void onResponseFailed() {
 	}
 
-	private static class ConnectWithServer extends AsyncTask<RequestBody, Void, Void> {
+    @Override
+    public void onIoExeption(IOException io) {
+
+    }
+
+    private static class ConnectWithServer extends AsyncTask<RequestBody, Void, Void>{
 
 		@Override
 		protected void onPreExecute() {
@@ -82,7 +106,7 @@ public class CreateConnection implements ResponseListener {
 		}
 
 		@Override
-		protected Void doInBackground(RequestBody... requestBodies) {
+		protected Void doInBackground(RequestBody... requestBodies){
 			requestBody = new FormBody.Builder()
 					.add("hello", "rishabh")
 					.build();
@@ -91,12 +115,13 @@ public class CreateConnection implements ResponseListener {
 					.post(requestBodies[0])
 					.build();
 			mBaseUrl = temp;
-			try {
-				response = okHttpClient.newCall(request).execute();
-				mResponse = response.body().string();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+            try {
+                response = okHttpClient.newCall(request).execute();
+                mResponse = response.body().string();
+            } catch (IOException e) {
+                e.printStackTrace();
+                mResponseListener.onIoExeption(e);
+            }
 			return null;
 		}
 
