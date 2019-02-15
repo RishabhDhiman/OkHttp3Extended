@@ -94,7 +94,7 @@ public class CreateConnection implements ResponseListener {
 	}
 
     @Override
-    public void onIoExeption(IOException io) {
+    public void onIOExeption(IOException io) {
 
     }
 
@@ -120,7 +120,7 @@ public class CreateConnection implements ResponseListener {
                 mResponse = response.body().string();
             } catch (IOException e) {
                 e.printStackTrace();
-                mResponseListener.onIoExeption(e);
+                mResponseListener.onIOExeption(e);
             }
 			return null;
 		}
