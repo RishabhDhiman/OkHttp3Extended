@@ -1,6 +1,6 @@
 # OkHttp3Extended
 
-This is the extended version of OkHttp3 Library. Which makes networking in Android easier than ever. This library is very easy to use. This library is used to get only Json Response using post method only it does not support other type of response as of now.
+This is the extended version of OkHttp3 Library. Which makes networking in Android easier than ever. This library is very easy to use. This library is used to get only Json Response using get and post method only it does not support other type of requests as of now.
 
 # How to use
 
@@ -73,6 +73,8 @@ This is the extended version of OkHttp3 Library. Which makes networking in Andro
    **You Don't need to call CreateConnection object in AsynTask or on background thread. The Library handles it itself.**
 
 4. Once you are done with the above step you are good to go now. To create a new request to server you have to create a RequestBody. Request body contains the parameters that you want to send with request to server.
+
+If you want to request using **GET** Method please use null in place of RequestBody object at the time of function call and provide parameteres in url only.
 
    **Creating Request Body**
    
